@@ -1327,8 +1327,8 @@ function(_pxr_library NAME)
     target_include_directories(${NAME}
         PRIVATE
             "${PROJECT_BINARY_DIR}/include"
-            "${PROJECT_BINARY_DIR}/${PXR_INSTALL_SUBDIR}/include"
         INTERFACE
+            $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/${PXR_INSTALL_SUBDIR}/include> # @note Include destination of `_copy_headers()` 
             $<INSTALL_INTERFACE:${headerInstallDir}>
     )
 
